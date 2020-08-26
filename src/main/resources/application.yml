@@ -1,0 +1,43 @@
+server:
+ port: 8088
+
+spring:
+ profiles:
+  active: dev
+ datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  driver-class-name: com.mysql.jdbc.Driver
+  username: root
+  password: mysql_p@ssw0rd
+  url: jdbc:mysql://123.57.176.149:3306/fafamc_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  druid:
+   driver-class-name: com.mysql.jdbc.Driver
+   initialSize: 5
+   minIdle: 5
+   maxActive: 20
+   maxWait: 60000
+   timeBetweenEvictionRunsMillis: 60000
+   minEvictableIdleTimeMillis: 300000
+   validationQuery: SELECT 1 FROM DUAL
+   testWhileIdle: true
+   testOnBorrow: false
+   testOnReturn: false
+   poolPreparedStatements: true
+   maxPoolPreparedStatementPerConnectionSize: 20
+   useGlobalDataSourceStat: true
+   connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+ rabbitmq:
+  host: 123.57.176.149
+  port: 5672
+  username: why
+  password: why
+  publisher-confirms: true
+  virtual-host: /demo
+
+
+#mybatis:
+  #  type-aliases-package: com.huhst.dto
+ #mapper-locations: classpath:mapper/*.xml
+#logging:
+# level:
+#  com.fafamc: debug
