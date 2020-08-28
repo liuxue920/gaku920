@@ -1,4 +1,4 @@
-package com.fafamc.ThreadDemo;
+package com.fafamc.forfun.ThreadDemo;
 
 /**
  * @Author gaku9

@@ -1,4 +1,4 @@
-package com.fafamc.finalDemo;
+package com.fafamc.forfun.finalDemo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

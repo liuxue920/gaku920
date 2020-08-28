@@ -1,4 +1,4 @@
-package com.fafamc.testpackage.test1;
+package com.fafamc.huawei.test1;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.fafamc.testpackage.test2;
+package com.fafamc.huawei.test2;
 
 import java.util.*;
 
@@ -27,7 +27,7 @@ public class Main {
             list.add(i);
         }
 
-        int index = 1;
+        int index = 1;//报数下标
         while(list.size()>=M){
             for(int i = 1 ; i <= list.size() ; i++){
                 if(index == M){

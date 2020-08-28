@@ -1,4 +1,4 @@
-package com.fafamc.stringtest;
+package com.fafamc.forfun.stringtest;
 
 public class Son extends Father {
 

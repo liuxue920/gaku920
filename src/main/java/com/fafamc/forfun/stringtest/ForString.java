@@ -1,4 +1,4 @@
-package com.fafamc.stringtest;
+package com.fafamc.forfun.stringtest;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -12,8 +12,9 @@ public class ForString {
 //        System.out.println(Arrays.toString( str.toCharArray()));
 
 //        System.out.println(Arrays.toString( ForString.split(str,",1")));
-        System.out.println(ForString.indexOf(str,",1234"));
+        System.out.println(ForString.indexOf(str,"bc,1"));
     }
+
 
     public static String[] split(String oldString, String splitChar){
         List<String> returnList = new ArrayList<String>();
@@ -38,11 +39,12 @@ public class ForString {
         }else{
             for(int i = 0 ; i < sources.length - targets.length ; i ++){
                 boolean flag = true;
-                for(int j = 0 ; j < targets.length ; j++){
+                A : for(int j = 0 ; j < targets.length ; j++){
 //                    System.out.println(sources[i+j]);
 //                    System.out.println(targets[j]);
                     if(sources[i+j] != targets[j]){
                         flag = false;
+                        break A;
                     }
                 }
                 if(flag){

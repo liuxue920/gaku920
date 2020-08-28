@@ -1,4 +1,4 @@
-package com.fafamc.stringtest;
+package com.fafamc.forfun.stringtest;
 
 public class Father {
 
@@ -13,7 +13,7 @@ public class Father {
     }
 
     public static void main(String[] args) {
-        System.out.println(Son.NAME);
+        System.out.println(NAME);
         Father f = new Son();
     }
 }
