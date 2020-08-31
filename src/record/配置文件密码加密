@@ -58,3 +58,14 @@ password: gaku920
 RABBITMQ
 input: why
 password: gaku920
+
+
+------------------------------------------
+Redis
+input:redis_p@ssw0rd
+password: gaku920
+
+127.0.0.1:6379> config get requirepass
+1) "requirepass"
+2) "redis_p@ssw0rd"
+

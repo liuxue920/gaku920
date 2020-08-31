@@ -1,0 +1,4 @@
+Redis
+https://www.cnblogs.com/happywish/p/10944253.html
+/etc/redis/6379.conf   -> 设置服务器启动时，软件启动
+/usr/local/redis/etc/redis.conf     -> 正常配置的

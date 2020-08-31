@@ -1,3 +1,8 @@
 config:
  param:
   cup: costa coffee
+
+logging:
+ config: classpath:logback-dev.xml
+
+

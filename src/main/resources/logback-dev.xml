@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 属性配置 https://blog.csdn.net/u012129558/article/details/79947477 -->
+
+<!-- scan当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。 -->
+<!-- scanPeriod设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。 -->
+<!-- debug，当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false -->
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+
+    <!-- 打印控制台 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-M-d HH:mm:ss} %t %p %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- springboot 启动日志 -->
+    <appender name="springboot" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/logback/springboot_%d{yyyy-M-d}.log
+            </FileNamePattern>
+            <MaxHistory>10</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-M-d HH:mm:ss} %t %p %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 运行时的日志，包括SQL日志 -->
+    <appender name="fafamc" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/logback/fafamc_%d{yyyy-M-d}.log
+            </FileNamePattern>
+            <MaxHistory>10</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-M-d HH:mm:ss} %t %p %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 发现个问题，root和logger节点需要放在appender下边，要不然会报错找不到节点 -->
+    <!-- configuration 标签下子节点：appender,root,logger -->
+    <root level="debug">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="springboot" />
+    </root>
+
+    <!-- name包必须能够扫描到所以类，包括启动类 -->
+    <logger name="com.fafamc" level="debug" additivity="false">
+        <appender-ref ref="fafamc" />
+    </logger>
+
+</configuration>

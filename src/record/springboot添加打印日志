@@ -1,0 +1,9 @@
+1.在resources下直接添加logback.xml文件，会直接生效
+
+2.如果需要设置不同环境不同的logback.xml,比如不同环境设置不同日志级别，可以配置多个logback.xml文件
+    如logback-dev.xml后，在不同环境中的application.yml文件中配置
+    logging:
+     config: classpath:logback-dev.xml
+
+3.logback文件详情讲解
+https://blog.csdn.net/u012129558/article/details/79947477
