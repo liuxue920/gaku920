@@ -2,14 +2,13 @@ package com.fafamc.exception;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Field;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class MyExceptionHandler {
 
     @ResponseBody
@@ -35,8 +34,8 @@ public class MyExceptionHandler {
             f.setAccessible(true);
             Class t = f.getType();
             if(t == String.class){
-                String abc = (String)f.get(obj);
-                f.set(obj,abc+"_dev");
+//                String abc = (String)f.get(obj);SSS
+//                f.set(obj,abc+"_dev");
             }
         }
         System.out.println("============应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器");

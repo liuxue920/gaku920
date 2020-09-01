@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fafamc.redpackage.dao.SubPackageExDao">
+
+    <!--新增所有列-->
+    <insert id="insertCord" keyProperty="id" useGeneratedKeys="true">
+        insert into fafamc_dev.SubPackage(package_id, money, user_name)
+        values (#{packageId}, #{money}, #{userName})
+        <selectKey resultType="long" keyProperty="id" order="AFTER">
+            select @@IDENTITY
+        </selectKey>
+    </insert>
+
+</mapper>

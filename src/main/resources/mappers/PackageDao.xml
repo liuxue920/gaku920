@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fafamc.redpackage.dao.PackageExDao">
+
+    <insert id="insertCord" keyProperty="id"
+            parameterType="com.fafamc.redpackage.domain.Package">
+        insert into fafamc_dev.Package(message, image_url,send_date_time,model,total,p_num)
+        values (#{message}, #{imageUrl}, #{sendDateTime}, #{model}, #{total}, #{pNum})
+        <selectKey resultType="long" keyProperty="id" order="AFTER">
+            select @@IDENTITY
+        </selectKey>
+
+    </insert>
+
+</mapper>

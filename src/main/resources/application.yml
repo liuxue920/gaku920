@@ -46,6 +46,12 @@ spring:
     max-idle: 10 #连接池中的最大空闲连接
     min-idle: 1 #连接池中的最小空闲连接
 
+mybatis:
+ mapper-locations: classpath:mappers/*.xml #我实在太傻逼了，这个路径写错了 classpath，不是class
+# config-location: classpath:mybatis/mybatis.xml
+ configuration:
+  map-underscore-to-camel-case: true
+
 ## 这样配置仍然有风险，因为密钥直接共享了出去
 jasypt:
  encryptor:
@@ -55,3 +61,7 @@ jasypt:
    prefix: ENC(
    suffix: )
 
+# 使fastjson生效，多个包使用逗号分隔
+ fastjson:
+  parser:
+   autoTypeAccept: com.fafamc.redpackage.domain.
