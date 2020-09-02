@@ -4,7 +4,7 @@
 
     <insert id="insertCord" keyProperty="id"
             parameterType="com.fafamc.redpackage.domain.Package">
-        insert into fafamc_dev.Package(message, image_url,send_date_time,model,total,p_num)
+        insert into fafamc_dev.package(message, image_url,send_date_time,model,total,p_num)
         values (#{message}, #{imageUrl}, #{sendDateTime}, #{model}, #{total}, #{pNum})
         <selectKey resultType="long" keyProperty="id" order="AFTER">
             select @@IDENTITY

@@ -492,4 +492,19 @@ public final class RedisUtil {
             return 0;
         }
     }
+
+    /**
+     *   移除集合中的左边第一个元素，返回值为移除的元素。
+     * @param key
+     * @return
+     */
+    public Object lPop(String key) {
+        try {
+            Object value = redisTemplate.opsForList().leftPop(key);
+            return value;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }

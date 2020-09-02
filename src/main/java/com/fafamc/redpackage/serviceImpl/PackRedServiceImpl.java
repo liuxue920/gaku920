@@ -48,6 +48,9 @@ public class PackRedServiceImpl implements PackRedService {
         pack.setTotal(eachMoney*pNum);
         packageExDao.insertCord(pack);
 
+        //在redis中存储子红包信息,失效时间是1天
+        redisUtil.set("package_"+pack.getId(),JSON.toJSONString(pack),24*60*60);
+
         for(int i = 0 ; i < pNum ; i++){
             Subpackage subPage = new Subpackage();
             subPage.setMoney(eachMoney);
@@ -55,12 +58,8 @@ public class PackRedServiceImpl implements PackRedService {
             subPackageExDao.insertCord(subPage);
             subPage.setId(subPage.getId());
 
-            pack.getSubpackageList().add(subPage);
+            redisUtil.lSet("package_subs_"+pack.getId(),subPage,24*60*60);
         }
-
-        //在redis中存储子红包信息,失效时间是1天
-        redisUtil.set("package_"+pack.getId(),JSON.toJSONString(pack),24*60*60);
-        redisUtil.lSet("package_subs_"+pack.getId(),pack.getSubpackageList(),24*60*60);
 
 
         return pack;
@@ -75,6 +74,8 @@ public class PackRedServiceImpl implements PackRedService {
         pack.setPNum(pNum);
         pack.setTotal(totalMoney);
         packageExDao.insertCord(pack);
+        //在redis中存储子红包信息
+        redisUtil.set("package_"+pack.getId(), JSON.toJSONString(pack),24*60*60);
 
         List<Integer> moneys =  CalculationUtil.groupMoney(totalMoney,pNum);
         for(int i = 0 ; i < pNum ; i++){
@@ -84,14 +85,8 @@ public class PackRedServiceImpl implements PackRedService {
             subPackageExDao.insertCord(subPage);
             subPage.setId(subPage.getId());
 
-            pack.getSubpackageList().add(subPage);
+            redisUtil.lSet("package_subs_"+pack.getId(),subPage,24*60*60);
         }
-
-        //在redis中存储子红包信息
-        redisUtil.set("package_"+pack.getId(), JSON.toJSONString(pack),24*60*60);
-        redisUtil.lSet("package_subs_"+pack.getId(),pack.getSubpackageList(),24*60*60);
-
-
         return pack;
     }
 }

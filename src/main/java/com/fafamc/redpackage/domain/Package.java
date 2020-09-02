@@ -4,9 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Data
 public class Package implements Serializable {
@@ -30,6 +28,6 @@ public class Package implements Serializable {
     //多少个红包
     private int pNum;
 
-    private List<Subpackage> subpackageList=new ArrayList<>();
+//    private List<Subpackage> subpackageList=new ArrayList<>();
 
 }
