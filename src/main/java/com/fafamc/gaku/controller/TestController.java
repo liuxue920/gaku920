@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author gaku9
  * @Create 2020/7/11
  **/
-@RequestMapping("/")
+@RequestMapping("/gaku")
 @RestController
 public class TestController {
 

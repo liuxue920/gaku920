@@ -13,7 +13,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}) //https://www.cnblogs.com/wangshichang/p/11418818.html 这个exclude的原因是这个
 public class Starter {
     public static void main(String[] args) {
-        SpringApplication.run(Starter.class, args);
+        SpringApplication sa = new SpringApplication(Starter.class);
+        sa.addListeners(new MainBusiListeners());
+        sa.run(args);
     }
 
 }
