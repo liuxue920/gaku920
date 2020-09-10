@@ -10,7 +10,9 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @Create 2020/7/11
  **/
 @MapperScan(basePackages ={"com.fafamc.gaku.dao,com.fafamc.redpackage.dao"})
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}) //https://www.cnblogs.com/wangshichang/p/11418818.html 这个exclude的原因是这个
+//https://www.cnblogs.com/wangshichang/p/11418818.html 这个DataSourceAutoConfiguration exclude的原因是这个
+// SecurityAutoConfiguration exclude的原因是由于springboot 2.0和activiti 6.0不匹配
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class Starter {
     public static void main(String[] args) {
         SpringApplication sa = new SpringApplication(Starter.class);

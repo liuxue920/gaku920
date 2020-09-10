@@ -1,6 +1,11 @@
-config:
- param:
-  cup: spark
-
 logging:
  config: classpath:logback-test.xml
+
+path:
+  patterns:
+    - /gaku/**
+    - /user/user
+
+config:
+  param:
+    cup: costa coffee

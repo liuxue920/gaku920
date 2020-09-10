@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class weblogcontroller {
 
     @Value("${config.param.cup}")
-    private String cupName;
+    private String cupName="123";
 
     @WebLog
     @RequestMapping(value = "/method",method = RequestMethod.POST)

@@ -4,6 +4,8 @@ server:
 spring:
  profiles:
   active: dev
+ main:
+  allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
  datasource:
   type: com.alibaba.druid.pool.DruidDataSource
   driver-class-name: com.mysql.jdbc.Driver
@@ -45,6 +47,11 @@ spring:
     max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制）
     max-idle: 10 #连接池中的最大空闲连接
     min-idle: 1 #连接池中的最小空闲连接
+# activiti:
+#  database-schema-update: true
+#  #自动部署验证设置:true-开启（默认）、false-关闭
+#  check-process-definitions: false
+#  process-definition-location-prefix: classpath:/processes/
 
 mybatis:
  mapper-locations: classpath:mappers/*.xml #我实在太傻逼了，这个路径写错了 classpath，不是class

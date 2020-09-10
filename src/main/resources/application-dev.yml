@@ -1,8 +1,13 @@
-config:
- param:
-  cup: costa coffee
-
 logging:
  config: classpath:logback-dev.xml
+
+path:
+ patterns:
+  - /gaku/**
+  - /user/user
+
+config:
+ param:
+  cup: luckin coffee
 
 

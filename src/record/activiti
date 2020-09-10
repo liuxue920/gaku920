@@ -1,0 +1,44 @@
+https://blog.csdn.net/qq_30698633/article/details/83038890
+1.pom 引入
+  <!-- activiti -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+
+2.配置ActivitiConfiguration.java 文件  XXXXX  完全不需要
+
+3.添加idea activiti 画图插件
+https://blog.csdn.net/weixin_44052431/article/details/105762071
+
+activiti配置
+https://www.jianshu.com/p/681c7185008a
+
+遇到问题1.
+    画图后，启动遇到问题
+    ***************************
+    APPLICATION FAILED TO START
+    ***************************
+    Description:
+    The bean 'processEngine', defined in class path resource [org/activiti/spring/boot/JpaProcessEngineAutoConfiguration$JpaConfiguration.class], could not be registered. A bean with that name has already been defined in class path resource [com/fafamc/activiti/config/ActivitiConfiguration.class] and overriding is disabled.
+    Action:
+    Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+    Disconnected from the target VM, address: '127.0.0.1:1143', transport: 'socket'
+
+    大概原因是，activiti又进行了数据库注册，和mysql注册冲突，需要在yml文件中增加配置
+    spring:
+     main:
+      allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+
+遇到问题2：
+    启动服务，
+    Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+    activiti初始化表，操作数据库使用jpa，我们这里解决办法就是引入spring-data-jpa-starter自动配置EntityManagerFactory。
+   <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+
+新移植了一个工程gaku920_activiti
