@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author gaku9
  * @Create 2020/7/11
  **/
+//@CrossOrigin   //跨域请求标签
 @RequestMapping("/gaku")
 @RestController
 public class TestController {

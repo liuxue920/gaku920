@@ -1,0 +1,35 @@
+1.模拟跨域问题
+    打开任意网址，比如www.baidu.com,F12,在控制台复制下面代码，然后回车
+    $.ajax({
+    url:"http://localhost:8088/gaku/test",//发送的路径
+    type:"post",//发送的方式
+    //data:'{"newsId":"5","type":"1","operation":"1"}',//发送的数据
+    contentType: "application/json", //提交数据类型
+    dataType:"json",//服务器返回的数据类型
+    success: function(data) {
+    if(data.msg="success"){
+    alert("已提交成功");
+
+    }else{
+    alert("提交失败");
+    }
+    },
+    error: function (data){
+    alert("提交失败");
+    }
+
+    });
+
+    相当于在baidu域名下，跨域发送localhost的请求
+
+2.解决方式（1）
+    在对应的controller 或者方法上加上标签 CrossOrigin，
+    但是发现个小问题 简单使用中  @CrossOrigin("https://www.baidu.com")没有生效，暂时不用纠结，
+    @CrossOrigin不加值，可以生效
+
+3.解决方式（2）
+    配置全局过滤器 详情参见CrossOriginConfig.java
+
+4.解决方式（3）
+    做全局过滤器配置spring的web.xml，springboot没有这个文件了
+    配置参见CrosFilter.java
