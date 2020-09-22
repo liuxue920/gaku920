@@ -3,7 +3,7 @@ logging:
 
 path:
  patterns:
-  #- /gaku/**
+  - /gaku/**
   - /user/user
 
 config:

@@ -13,7 +13,7 @@ public class TestService {
     @Autowired
     private TestDao testDao;
 
-    public Object testServiceMothed(){
-        return testDao.selectByPrimaryKey(1L);
+    public Object testServiceMothed(Long id){
+        return testDao.selectByPrimaryKey(id);
     }
 }

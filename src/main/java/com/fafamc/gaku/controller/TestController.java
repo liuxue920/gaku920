@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author gaku9
  * @Create 2020/7/11
@@ -24,9 +28,20 @@ public class TestController {
     private RedisUtil redisUtil;
 
     @RequestMapping("/test")
-    public Object testController(){
-        Object o = service.testServiceMothed();
-        redisUtil.set("forTest","1",60);
+    public Object testController(HttpServletRequest request,HttpServletResponse response){
+        Object o = service.testServiceMothed(1L);
+//        redisUtil.set("forTest","1",60);
+//        mqProduct.send();
+        if(o != null){
+            response.addCookie(new Cookie("token","lx_token"));
+            return o;
+        }
+        return "NULL";
+    }
+
+    @RequestMapping("/test2")
+    public Object testController2(HttpServletRequest request,HttpServletResponse response){
+        Object o = service.testServiceMothed(2L);
 //        mqProduct.send();
         if(o != null){
             return o;
