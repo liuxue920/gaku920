@@ -1,9 +1,11 @@
 package com.fafamc.gaku.controller;
 
+import com.fafamc.gaku.domain.TTest;
 import com.fafamc.gaku.mq.product.MqProduct;
 import com.fafamc.gaku.redis.RedisUtil;
 import com.fafamc.gaku.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,5 +49,10 @@ public class TestController {
             return o;
         }
         return "NULL";
+    }
+
+    @RequestMapping("/test3")
+    public Object testController3(@RequestBody TTest test){
+        return test;
     }
 }

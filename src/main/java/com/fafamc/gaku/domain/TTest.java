@@ -1,10 +1,12 @@
 package com.fafamc.gaku.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @Author gaku9
@@ -18,4 +20,7 @@ public class TTest implements Serializable {
     private Long id;
 
     private String name;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime time;
 }

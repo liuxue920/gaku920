@@ -1,8 +1,6 @@
 package com.fafamc.gaku.config;
 
-import com.fafamc.gaku.domain.LocalUser;
 import com.fafamc.gaku.redis.RedisUtil;
-import com.fafamc.gaku.util.LocalInfo;
 import com.fafamc.gaku.util.SpringApplicationContextUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,16 +31,17 @@ public class AdminInterceptor implements HandlerInterceptor {
             }
         }
 
-        String key = "user_"+value;
-        if(redisUtil.hasKey(key)){
-            redisUtil.expire(key,60*10);
-
-            LocalUser user = (LocalUser) redisUtil.get(key);
-            LocalInfo.set(user);
-            return true;
-        }
-
-        throw new RuntimeException("没登录");
+//        String key = "user_"+value;
+//        if(redisUtil.hasKey(key)){
+//            redisUtil.expire(key,60*10);
+//
+//            LocalUser user = (LocalUser) redisUtil.get(key);
+//            LocalInfo.set(user);
+//            return true;
+//        }
+//
+//        throw new RuntimeException("没登录");
+        return true;
     }
 
     /**

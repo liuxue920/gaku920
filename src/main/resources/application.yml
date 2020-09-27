@@ -11,7 +11,7 @@ spring:
   driver-class-name: com.mysql.jdbc.Driver
   username: root
   password:  ENC(TttgdBOC0VGyIva4JtJwETnFNe2+ngqrjxstfIiG/9fv7s32QzNMN7S2S3Us2Knu)
-  url: jdbc:mysql://123.57.176.149:3306/fafamc_dev?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+  url: jdbc:mysql://123.57.176.149:3306/fafamc_dev?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=Asia/Shanghai
   druid:
    driver-class-name: com.mysql.jdbc.Driver
    initialSize: 5
