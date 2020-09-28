@@ -17,7 +17,6 @@ public class Starter {
     public static void main(String[] args) {
         SpringApplication sa = new SpringApplication(Starter.class);
         sa.addListeners(new MainBusiListeners());
-
         sa.run(args);
     }
 
