@@ -125,5 +125,21 @@
             <version>6.0.0</version>
         </dependency>-->
 
+<!--        &lt;!&ndash; powermock 单元测试 &ndash;&gt;
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>1.6.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        &lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.powermock/powermock-api-mockito &ndash;&gt;&ndash;&gt;
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>1.6.1</version>
+            <scope>test</scope>
+        </dependency>-->
+
     </dependencies>
 </project>
