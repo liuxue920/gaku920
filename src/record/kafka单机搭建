@@ -1,0 +1,40 @@
+kafka单机搭建
+
+基本基于文档 https://www.cnblogs.com/unqiang/p/5166770.html 搭建
+
+遇到的坑
+1.版本问题 搭建成功后，idea启动，会报错java.io.EOFException
+  经查询，是kafka版本的问题，上述文档使用的是kafka 0.8版本，
+  后下载kafka_2.12-2.2.0.tgz  该问题解决
+  https://blog.csdn.net/dingyufei615/article/details/103044554/
+
+2.kafka server.properties 文件配置
+  以下几个参数，无论如何配置，要么linux启动kafka启动失败，要么启动成功后，idea
+  启动报错，java.net.ConnectException: Connection refused: no further information拒绝连接访问
+    #liuxue
+    #host.name=localhost
+    #host.name=123.57.176.149 阿里云公网ip 启动报错
+    #host.name=172.18.0.1 阿里云内网ip
+    #host.name=0.0.0.0
+    #host.name=127.0.0.1
+
+    ############################# Socket Server Settings #############################
+
+    # The address the socket server listens on. It will get the value returned from
+    # java.net.InetAddress.getCanonicalHostName() if not configured.
+    #   FORMAT:
+    #     listeners = listener_name://host_name:port
+    #   EXAMPLE:
+    #     listeners = PLAINTEXT://your.host.name:9092
+！！！#listeners=PLAINTEXT://127.0.0.1:9092
+
+    # Hostname and port the broker will advertise to producers and consumers. If not set,
+    # it uses the value for "listeners" if configured.  Otherwise, it will use the value
+    # returned from java.net.InetAddress.getCanonicalHostName().
+！！！#advertised.listeners=PLAINTEXT://123.57.176.149:9092
+
+    发现，telnet 8092端口不通。
+    查询，网上需要配置修改host.name，但是我这里一直无法生效。
+    后来发现，将这些参数全部注释，可以启动，可以telnet，但是 idea启动之后，报错，无法连接 iz2zeibcpxka2rfdhttw7hz：8092
+    iz2zeibcpxka2rfdhttw7hz 是阿里云主机名，修改linux hosts文件，修改本地hosts文件 配置
+    123.57.176.149 iz2zeibcpxka2rfdhttw7hz 启动后，终于生效
