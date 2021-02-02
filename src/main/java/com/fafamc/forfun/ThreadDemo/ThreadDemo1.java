@@ -1,10 +1,14 @@
 package com.fafamc.forfun.ThreadDemo;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * @Author gaku9
  * @Create 2020/7/29
  **/
 public class ThreadDemo1 {
+
     public static void main(String[] args) {
         /**
          * 控制台输出结果：
@@ -24,6 +28,10 @@ public class ThreadDemo1 {
         Thread t2 = new MyThread("线程2");
         /*直接调用run()方法*/
         t2.run();
+
+
+        ExecutorService executor = Executors.newCachedThreadPool();
+
     }
 }
 /**

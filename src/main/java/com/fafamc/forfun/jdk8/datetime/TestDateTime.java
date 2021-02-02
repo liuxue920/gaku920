@@ -41,7 +41,7 @@ public class TestDateTime {
         System.out.println("Current Time="+time);
 
         //Creating LocalTime by providing input arguments
-        LocalTime specificTime = LocalTime.of(12,20,25,40);
+        LocalTime specificTime = LocalTime.of(12,20,25);
         System.out.println("Specific Time of Day="+specificTime);
 
         //Try creating time by providing invalid inputs
@@ -59,6 +59,15 @@ public class TestDateTime {
         //Getting date from the base date i.e 01/01/1970
         LocalTime specificSecondTime = LocalTime.ofSecondOfDay(86399);
         System.out.println("10000th second time= "+specificSecondTime);
+    }
+
+    @Test
+    public void test123(){
+        LocalDateTime begin = LocalDateTime.of(LocalDate.now(),LocalTime.of(00,00,00));
+        LocalDateTime end = LocalDateTime.of(LocalDate.now(),LocalTime.of(23,59,59));
+
+        System.out.println("begin="+begin);
+        System.out.println("end="+end);
     }
 
     @Test

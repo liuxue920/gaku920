@@ -12,7 +12,10 @@ public class ForString {
 //        System.out.println(Arrays.toString( str.toCharArray()));
 
 //        System.out.println(Arrays.toString( ForString.split(str,",1")));
-        System.out.println(ForString.indexOf(str,"bc,1"));
+//        System.out.println(ForString.indexOf(str,"bc,1"));
+
+        Father f = new Son();
+        f = new Son();
     }
 
 

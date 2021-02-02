@@ -34,6 +34,16 @@ https://blog.csdn.net/weixin_36380516/article/details/104285672
         }
     }
 
+        !!!!!!  生成的话还是怎么生成吧
+        public static void main(String[] args) {
+            BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+            String password = "firewall";
+            String plainText = "NetConf_3";
+            textEncryptor.setPassword(password);
+            String cipherText = textEncryptor.encrypt(plainText);
+            System.out.println(cipherText);
+        }
+
 3.yml配置文件中配置
 jasypt:
  encryptor:

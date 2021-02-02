@@ -7,6 +7,7 @@ import com.fafamc.gaku.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
@@ -41,7 +42,7 @@ public class TestController {
         return "NULL";
     }
 
-    @RequestMapping("/test2")
+    @RequestMapping(value = "/test2",method = RequestMethod.GET)
     public Object testController2(HttpServletRequest request,HttpServletResponse response){
         Object o = service.testServiceMothed(2L);
 //        mqProduct.send();

@@ -13,7 +13,7 @@ public class Father {
     }
 
     public static void main(String[] args) {
-        System.out.println(NAME);
-        Father f = new Son();
+        //System.out.println(NAME);
+        //Father f = new Son();
     }
 }
